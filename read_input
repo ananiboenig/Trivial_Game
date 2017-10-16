@@ -1,0 +1,21 @@
+myfile = open('simple_input_example', 'r')
+content = myfile.read()
+myfile.close()
+print(content)
+
+#also possible and shorter
+
+with open('simple_input_example', 'r') as f:
+  content = f.read()
+
+
+#Problem: content is now a string and also read as one. --> no seperation between q/a pairs
+
+#reading line by line
+
+with open('simple_input_example', 'r') as f:
+  text = f.readlines()
+for line in text:
+    print line
+    answer = input("What is your answer?")
+    print answer
