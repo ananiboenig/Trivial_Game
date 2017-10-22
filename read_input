@@ -9,13 +9,31 @@ with open('simple_input_example', 'r') as f:
   content = f.read()
 
 
-#Problem: content is now a string and also read as one. --> no seperation between q/a pairs
+#Problem: content is now a string and also read as one. --> no seperation between q/a pairs SOLVED
 
 #reading line by line
 
 with open('simple_input_example', 'r') as f:
   text = f.readlines()
+  player1 =0
+  player2 =0
 for line in text:
-    print line
-    answer = input("What is your answer?")
-    print answer
+  question =""
+  for x in line:
+    if x != ";":
+      question = question + x
+    else:
+      break
+  print (question)
+  answer = input("What is your answer? ")
+  print (answer)
+  if answer in line:
+    player1 = player1 +1
+    print ("Right! You gained one point.")
+  else:
+    print("Wrong! You gained 0 points.")
+    continue
+  if player1 == 5:
+    print ("Player1 won!")
+    break
+#still don't have a clue about how switching from a player to another in case of wrong answer. And about selecting random questions that can't be repeted
