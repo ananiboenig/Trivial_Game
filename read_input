@@ -12,31 +12,32 @@ with open('simple_input_example', 'r') as f:
 
 f = open('simple_input_example.txt','r')
 text = f.readlines()
-player1 = 0
-player2 = 0
+dictionary = {}
 for line in text:
     question = ""
     corr_answer = ""
     for x in line:
         if x != ";":
-            question = question + x
+            question = question + x 
         else:
             break
-    print(question)
     for y in range(len(question)+1, len(line)-1):
         corr_answer = corr_answer + line[y]
-        
-#correctly defined questions and correct answer: there was a semantic error. For example if you had entered even only a single letter and not the full answer the program would have given you the point even if the answer was not entirely correct. Now is fixed.
+        dictionary[question] = corr_answer         #created a dictionary that as the questions as keys and the correct answers as values
+copy = dictionary.copy()                           #copy for repeat the dictionary when the questions are all already asked
 
+import random                                      #function called to randomize the dictionary order
+while 1:
+    r = (random.choice(list(dictionary)))          #this way the random key will remane the same later        
+    print(r)
     answer = input("What is your answer? ")
-    if (answer == corr_answer):
-        player1 = player1 + 1
+    if answer == (dictionary[r]):                  #like there
         print ("Right, you gained one point.")
     else:
         print("Wrong! You gained 0 points")
-        continue
-    if player1 == 5:
-        print("Player1 won!")
-    break
+    del dictionary[r]                              #deleting from the dictionary the question already asked
+    if dictionary == {}:                           #but when all the question are asked and the dictonary is empty...
+        dictionary = copy                          #dictonary takes the copy and its ready to begin again
 
-#still don't have a clue about how switching from a player to another in case of wrong answer. And about selecting random questions that can't be repeted
+
+#still don't have a clue about how switching from a player to another in case of wrong answer.
