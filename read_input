@@ -23,7 +23,7 @@ for line in text:
             break
     for y in range(len(question)+1, len(line)-1):
         corr_answer = corr_answer + line[y]
-        dictionary[question] = corr_answer         #created a dictionary that as the questions as keys and the correct answers as values
+        dictionary[question] = corr_answer         #created a dictionary that takes the questions as keys and the correct answers as values
 copy = dictionary.copy()                           #copy for repeat the dictionary when the questions are all already asked
 
 import random                                      #function called to randomize the dictionary order
