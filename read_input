@@ -26,7 +26,7 @@ for line in text:
     for y in range(len(question)+1, len(line)-1):
         corr_answer = corr_answer + line[y]
         
-#correctly defined questions and correct answer: there was a semantic error. For example if you entered even only a single letter and not the full answer the program would have given you the point even if the answer was not entirely correct. Now is fixed.
+#correctly defined questions and correct answer: there was a semantic error. For example if you had entered even only a single letter and not the full answer the program would have given you the point even if the answer was not entirely correct. Now is fixed.
 
     answer = input("What is your answer? ")
     if (answer == corr_answer):
