@@ -13,27 +13,33 @@ with open('simple_input_example', 'r') as f:
 
 #reading line by line
 
-with open('simple_input_example', 'r') as f:
-  text = f.readlines()
-  player1 =0
-  player2 =0
+f = open('simple_input_example.txt','r')
+text = f.readlines()
+player1 = 0
+player2 = 0
 for line in text:
-  question =""
-  for x in line:
-    if x != ";":
-      question = question + x
+    question = ""
+    corr_answer = ""
+    for x in line:
+        if x != ";":
+            question = question + x
+        else:
+            break
+    print(question)
+    for y in range(len(question)+1, len(line)-1):
+        corr_answer = corr_answer + line[y]
+        
+#correctly defined questions and correct answer: there was a semantic error. For example if you entered even only a single letter and not the full answer the program would have given you the point even if the answer was not entirely correct. Now is fixed.
+
+    answer = input("What is your answer? ")
+    if (answer == corr_answer):
+        player1 = player1 + 1
+        print ("Right, you gained one point.")
     else:
-      break
-  print (question)
-  answer = input("What is your answer? ")
-  print (answer)
-  if answer in line:
-    player1 = player1 +1
-    print ("Right! You gained one point.")
-  else:
-    print("Wrong! You gained 0 points.")
-    continue
-  if player1 == 5:
-    print ("Player1 won!")
+        print("Wrong! You gained 0 points")
+        continue
+    if player1 == 5:
+        print("Player1 won!")
     break
+
 #still don't have a clue about how switching from a player to another in case of wrong answer. And about selecting random questions that can't be repeted
