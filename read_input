@@ -8,9 +8,6 @@ print(content)
 with open('simple_input_example', 'r') as f:
   content = f.read()
 
-
-#Problem: content is now a string and also read as one. --> no seperation between q/a pairs SOLVED
-
 #reading line by line
 
 f = open('simple_input_example.txt','r')
