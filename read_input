@@ -13,10 +13,10 @@ with open('simple_input_example', 'r') as f:
 f = open('simple_input_example.txt','r')
 text = f.readlines()
 dictionary = {}
-for line in text:
+for line in text:                     
     question = ""
     corr_answer = ""
-    for x in line:
+    for x in line:                                 #we could also use the split function here. --> read_input_2 
         if x != ";":
             question = question + x 
         else:
