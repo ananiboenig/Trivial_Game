@@ -13,45 +13,47 @@ copy = dictionary.copy()                           #copy for repeat the dictiona
    
 
 
-import random  
+import random
+Player1 = input("What is your name Player 1? ")
+Player2 = input("What is your name Player 2? ")
 Player_1 = 0
 Player_2 = 0
                                     #function called to randomize the dictionary order
 while Player_1 < 2 and Player_2 < 2:
     
-    r = (random.choice(list(dictionary)))                     #this way the random key will remane the same later        
-    print("Player_1, " + "your score is: " + str(Player_1))
+    r = (random.choice(list(dictionary)))          #this way the random key will remane the same later        
+    print(Player1 + ", your score is: " + str(Player_1))
     print(r)
     answer = input("What is your answer? ") + '\n'
-    if answer == dictionary[r]:                               #like there
-       print ("Right Player_1, you gained one point.")
+    if answer == dictionary[r]:                  #like there
+       print ("Right " + Player1 + ", you gained one point.")
        Player_1 = Player_1 + 1
        
     else:
        print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
 
        r = (random.choice(list(dictionary)))          #this way the random key will remane the same later        
-       print("Player_2, " + "your score is: " + str(Player_2))
+       print(Player2 + ", your score is: " + str(Player_2))
        print(r)
        answer = input("What is your answer? ") + '\n'
        if answer == dictionary[r]:                  #like there
-          print ("Right Player_2, you gained one point.")
+          print ("Right " + Player2 + ", you gained one point.")
           Player_2 = Player_2 + 1
        else:
            print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
        
-   
+    #function
     del dictionary[r]                              #deleting from the dictionary the question already asked
     if dictionary == {}:                           #but when all the question are asked and the dictonary is empty...
        dictionary = copy                          #dictonary takes the copy and its ready to begin again
 
 if Player_1 == 5:
-   print("Player_1 won!")
-else
-   print("Player_2 won!")
+   print(Player1 + " won!")
+else:
+   print(Player2 + " won!")
    
 #still don't have a clue about how switching from a player to another in case of wrong answer.
 
 ##Still to do:
 #implement lowercase letter
-#let player be named 
+
