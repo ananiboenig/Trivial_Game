@@ -1,1 +1,32 @@
+f = open('simple_input_example.txt','r')
+text = f.readlines()
+dictionary = {}
 
+for line in text:
+    question = ""
+    corr_answer = ""
+    field = line.split(";")
+    question = question + field[0]
+    corr_answer = corr_answer + field[1]           #- also create lower case
+    dictionary[question] = corr_answer             #created a dictionary that takes the questions as keys and the correct answers as values
+copy = dictionary.copy()                           #copy for repeat the dictionary when the questions are all already asked
+    
+    
+    
+
+
+import random                                      #function called to randomize the dictionary order
+while 1:
+    r = (random.choice(list(dictionary)))          #this way the random key will remane the same later        
+    print(r)
+    answer = input("What is your answer? ")
+    if answer == (dictionary[r]):                  #like there
+        print ("Right, you gained one point.")
+    else:
+        print("Wrong! You gained 0 points")
+    del dictionary[r]                              #deleting from the dictionary the question already asked
+    if dictionary == {}:                           #but when all the question are asked and the dictonary is empty...
+        dictionary = copy                          #dictonary takes the copy and its ready to begin again
+
+
+#still don't have a clue about how switching from a player to another in case of wrong answer.
