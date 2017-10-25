@@ -18,6 +18,8 @@ Player1 = input("Player1, what is your name? ")
 Player2 = input("Player2, what is your name? ")
 Player_1 = 0
 Player_2 = 0
+random_lob = ("Right", "Awesome", "Perfect", "Super")
+l = random.choice(list(random_lob))
                                     
 while Player_1 < 2 and Player_2 < 2:
     
@@ -28,7 +30,7 @@ while Player_1 < 2 and Player_2 < 2:
     answer = input("What is your answer? ") + '\n'
     
     if str.lower(answer) == str.lower(dictionary[r]):                                     
-       print ("Right " + Player1 + ", you gained 1 point.")
+       print (l + " " + Player1 + ", you gained 1 point.")
        Player_1 = Player_1 + 1
        
     else:
@@ -41,12 +43,14 @@ while Player_1 < 2 and Player_2 < 2:
        answer = input("What is your answer? ") + '\n'
 
        while (str.lower(answer) == str.lower(dictionary[r])):
-           
-            if Player_2 == 1:
+
+            print (l + " " + Player2 + ", you gained 1 point.")
+            Player_2 = Player_2 + 1
+            
+            if Player_2 == 2:
                break
             else:
-               print ("Right, " + Player2 + ", you gained 1 point.")
-               Player_2 = Player_2 +1
+               
                r = (random.choice(list(dictionary)))                                               
                print('\n' + Player2 + ", your score is: " + str(Player_2))
                print('\n' + "Here is your question: ")
@@ -54,8 +58,8 @@ while Player_1 < 2 and Player_2 < 2:
                answer = input("What is your answer? ") + '\n'
               
                
-       if Player_2 == 1:
-               print ("Right, " + Player2 + ", you gained 1 point.")
+       if Player_2 == 2:
+               
                print('\n' + Player2 + " won!")
                break
        print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
@@ -75,3 +79,5 @@ if Player_1 == 2:
 #First question? etc.
 #Random loben
 #Prof
+    
+ 
