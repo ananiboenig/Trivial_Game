@@ -35,7 +35,7 @@ while Player_1 < 2 and Player_2 < 2:
         print(Player2 + ", your score is: " + str(Player_2)+ '\n' + "Here is your question: ")
         print(r)
         answer = input("What is your answer? ") + '\n'
-        while str.lower(answer) == str.lower(dictionary[r]):
+        while str.lower(answer) == str.lower(dictionary[r]) and Player_2 == 2:
             Player_2 = Player_2 + 1
             print("Right " + Player2 + ", you gained 1 point.")
             r = (random.choice(list(dictionary)))                                       #this way the random key will remane the same later        
