@@ -40,9 +40,11 @@ while Player_1 < 2 and Player_2 < 2:
        print(r + '\n')
        answer = input("What is your answer? ") + '\n'
 
-       while (str.lower(answer) == str.lower(dictionary[r])) and (Player_2 < 2):
+       while (str.lower(answer) == str.lower(dictionary[r])):
            
-                
+            if Player_2 == 1:
+               break
+            else:
                print ("Right, " + Player2 + ", you gained 1 point.")
                Player_2 = Player_2 +1
                r = (random.choice(list(dictionary)))                                               
@@ -52,7 +54,10 @@ while Player_1 < 2 and Player_2 < 2:
                answer = input("What is your answer? ") + '\n'
               
                
-
+       if Player_2 == 1:
+               print ("Right, " + Player2 + ", you gained 1 point.")
+               print('\n' + Player2 + " won!")
+               break
        print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
     
 
@@ -65,9 +70,8 @@ while Player_1 < 2 and Player_2 < 2:
 if Player_1 == 2:
     print('\n' + Player1 + " won!")
     
-else:
-    print('\n' + Player2 + " won!")
 
 
 #First question? etc.
 #Random loben
+#Prof
