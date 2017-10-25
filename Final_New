@@ -7,9 +7,9 @@ for line in text:
    corr_answer = ""
    field = line.split(";")
    question = question + field[0]
-   corr_answer = corr_answer + field[1]           #- also create lower case
-   dictionary[question] = corr_answer             #created a dictionary that takes the questions as keys and the correct answers as values
-copy = dictionary.copy()                          #copy for repeat the dictionary when the questions are all already asked
+   corr_answer = corr_answer + field[1]           
+   dictionary[question] = corr_answer             
+copy = dictionary.copy()                         
    
 
 
@@ -18,54 +18,56 @@ Player1 = input("Player1, what is your name? ")
 Player2 = input("Player2, what is your name? ")
 Player_1 = 0
 Player_2 = 0
-                                    #function called to randomize the dictionary order
+                                    
 while Player_1 < 2 and Player_2 < 2:
     
-    r = (random.choice(list(dictionary)))          #this way the random key will remane the same later        
-    print(Player1 + ", your score is: " + str(Player_1) + '\n' + "Here is your question: ")
-    print(r)
+    r = (random.choice(list(dictionary)))                 
+    print('\n' + Player1 + ", your score is: " + str(Player_1))
+    print('\n' + "Here is your question: ")
+    print(r + '\n')
     answer = input("What is your answer? ") + '\n'
     
-    if str.lower(answer) == str.lower(dictionary[r]):                                     #upper/lower/capitalized fixed (?)
+    if str.lower(answer) == str.lower(dictionary[r]):                                     
        print ("Right " + Player1 + ", you gained 1 point.")
        Player_1 = Player_1 + 1
        
     else:
        print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
-       r = (random.choice(list(dictionary)))                                       #this way the random key will remane the same later        
-       print(Player2 + ", your score is: " + str(Player_2)+ '\n' + "Here is your question: ")
-       print(r)
+       
+       r = (random.choice(list(dictionary)))                                               
+       print('\n' + Player2 + ", your score is: " + str(Player_2))
+       print('\n' + "Here is your question: ")
+       print(r + '\n')
        answer = input("What is your answer? ") + '\n'
 
-       while str.lower(answer) == str.lower(dictionary[r]):
+       while (str.lower(answer) == str.lower(dictionary[r])) and (Player_2 < 2):
            
-        if str.lower(answer) == str.lower(dictionary[r]):
+                
                print ("Right, " + Player2 + ", you gained 1 point.")
                Player_2 = Player_2 +1
-           else:
-               print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
+               r = (random.choice(list(dictionary)))                                               
+               print('\n' + Player2 + ", your score is: " + str(Player_2))
+               print('\n' + "Here is your question: ")
+               print(r + '\n')
+               answer = input("What is your answer? ") + '\n'
+              
+               
 
-def questionmaster():
-    while Player_1 < 2 and Player_2 < 2:
-        r = (random.choice(list(dictionary)))          #this way the random key will remane the same later        
-        print(Player1 + ", your score is: " + str(Player_1) + '\n' + "Here is your question: ")
-        print(r)
-        answer = input("What is your answer? ") + '\n'
-
-        if str.lower(answer) == str.lower(dictionary[r]):                                     #upper/lower/capitalized fixed (?)
-            print ("Right " + Player1 + ", you gained 1 point.")
-            Player_1 = Player_1 + 1
-
-        else:
-            print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
-            r = (random.choice(list(dictionary)))                                       #this way the random key will remane the same later        
-            print(Player2 + ", your score is: " + str(Player_2)+ '\n' + "Here is your question: ")
-            print(r)
-            answer = input("What is your answer? ") + '\n'
-
-            
-    
-while Player_1 < 2 and Player_2 < 2:
-    questionmaster
+       print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
     
 
+
+      
+    del dictionary[r]
+    if dictionary == {}:                           
+        dictionary = copy                         
+
+if Player_1 == 2:
+    print('\n' + Player1 + " won!")
+    
+else:
+    print('\n' + Player2 + " won!")
+
+
+#First question? etc.
+#Random loben
