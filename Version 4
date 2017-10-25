@@ -17,11 +17,11 @@ Player2 = input("Player2, what is your name? ")
 Player1_score = 0
 Player2_score = 0
 
-while Player1_score < 2 and Player2_score < 2:
+while Player1_score < 5 and Player2_score < 5:
     P1_status = True
     P2_status = True
 
-    while P1_status == True and Player1_score < 2:
+    while P1_status == True and Player1_score < 5:
         r = (random.choice(list(dictionary)))
         print(Player1 + ", your score is: " + str(Player1_score) + '\n' + "Here is your question: ")
         print(r)
@@ -34,10 +34,10 @@ while Player1_score < 2 and Player2_score < 2:
             P1_status = False
             print("Wrong answer " + Player1)
 
-    if Player1_score == 2:
+    if Player1_score == 5:
         break
 
-    while P2_status == True and Player2_score < 2:
+    while P2_status == True and Player2_score < 5:
         r = (random.choice(list(dictionary)))
         print(Player2 + ", your score is: " + str(Player2_score) + '\n' + "Here is your question: ")
         print(r)
@@ -50,10 +50,10 @@ while Player1_score < 2 and Player2_score < 2:
             P2_status = False
             print("Wrong answer " + Player2)
 
-    if Player2_score == 2:
+    if Player2_score == 5:
         break
 
-if Player2_score == 2:
+if Player2_score == 5:
         print("P2 wins")
 
 else:
