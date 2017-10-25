@@ -1,4 +1,4 @@
-f = open('questions_000.txt','r')
+f = open('questions_00.txt','r')
 text = f.readlines()
 dictionary = {}
 
