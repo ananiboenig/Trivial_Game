@@ -16,8 +16,8 @@ Player1 = input("Player1, what is your name? ")
 Player2 = input("Player2, what is your name? ")
 Player1_score = 0
 Player2_score = 0
-random_lob = ("Right", "Awesome", "Perfect", "Super", "Amazing")
-l = random.choice(list(random_lob))
+random_compliment = ("Right", "Awesome", "Perfect", "Super", "Amazing")
+l = random.choice(list(random_compliment))
 
 while Player1_score < 5 and Player2_score < 5:
     P1_status = True
@@ -25,7 +25,7 @@ while Player1_score < 5 and Player2_score < 5:
 
     while P1_status == True and Player1_score < 5:
         r = (random.choice(list(dictionary)))
-        print('\n' + Player1 + ", your score is: " + str(Player_1))
+        print('\n' + Player1 + ", your score is: " + str(Player1_score))
         print('\n' + "Here is your question: ")
         print(r + '\n')
         answer = input("What is your answer? ") + '\n'
