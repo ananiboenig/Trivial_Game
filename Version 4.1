@@ -1,0 +1,64 @@
+f = open('questions_00.txt','r')
+text = f.readlines()
+dictionary = {}
+
+for line in text:
+   question = ""
+   corr_answer = ""
+   field = line.split(";")
+   question = question + field[0]
+   corr_answer = corr_answer + field[1]
+   dictionary[question] = corr_answer
+copy = dictionary.copy()
+
+import random
+Player1 = input("Player1, what is your name? ")
+Player2 = input("Player2, what is your name? ")
+Player1_score = 0
+Player2_score = 0
+random_lob = ("Right", "Awesome", "Perfect", "Super")
+l = random.choice(list(random_lob))
+
+while Player1_score < 5 and Player2_score < 5:
+    P1_status = True
+    P2_status = True
+
+    while P1_status == True and Player1_score < 5:
+        r = (random.choice(list(dictionary)))
+        print('\n' + Player1 + ", your score is: " + str(Player_1))
+        print('\n' + "Here is your question: ")
+        print(r + '\n')
+        answer = input("What is your answer? ") + '\n'
+
+        if str.lower(answer) == str.lower(dictionary[r]):
+            print (l + " " + Player1 + ", you gained 1 point.")
+            Player1_score = Player1_score + 1
+        else:
+            P1_status = False
+            print("Wrong!" + Player1 + " You gained 0 points! Right answer would have been: " + dictionary[r])
+
+    if Player1_score == 5:
+        break
+
+    while P2_status == True and Player2_score < 5:
+        r = (random.choice(list(dictionary)))
+        print('\n' + Player2 + ", your score is: " + str(Player2_score))
+        print('\n' + "Here is your question: ")
+        print(r + '\n')
+        answer = input("What is your answer? ") + '\n'
+
+        if str.lower(answer) == str.lower(dictionary[r]):
+            print (l + " " + Player2 + ", you gained 1 point.")
+            Player2_score = Player2_score + 1
+        else:
+            P2_status = False
+            print("Wrong! You gained 0 points! Right answer would have been: " + dictionary[r])
+
+    if Player2_score == 5:
+        break
+
+if Player2_score == 5:
+    print('\n' + Player2 + " won!")
+
+else:
+    print('\n' + Player1 + " won!")
