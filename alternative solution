@@ -1,0 +1,60 @@
+f = open('questions_00.txt','r')
+text = f.readlines()
+dictionary = {}
+
+for line in text:
+   question = ""
+   corr_answer = ""
+   field = line.split(";")
+   question = question + field[0]
+   corr_answer = corr_answer + field[1]
+   dictionary[question] = corr_answer
+copy = dictionary.copy()
+
+import random
+Player1 = input("Player1, what is your name? ")
+Player2 = input("Player2, what is your name? ")
+Player1_score = 0
+Player2_score = 0
+
+while Player1_score < 2 and Player2_score < 2:
+    P1_status = True
+    P2_status = True
+
+    while P1_status == True and Player1_score < 2:
+        r = (random.choice(list(dictionary)))
+        print(Player1 + ", your score is: " + str(Player1_score) + '\n' + "Here is your question: ")
+        print(r)
+        answer = input("What is your answer? ") + '\n'
+
+        if str.lower(answer) == str.lower(dictionary[r]):
+            print ("Right " + Player1 + ", you gained 1 point.")
+            Player1_score = Player1_score + 1
+        else:
+            P1_status = False
+            print("Wrong answer " + Player1)
+
+    if Player1_score == 2:
+        break
+
+    while P2_status == True and Player2_score < 2:
+        r = (random.choice(list(dictionary)))
+        print(Player2 + ", your score is: " + str(Player2_score) + '\n' + "Here is your question: ")
+        print(r)
+        answer = input("What is your answer? ") + '\n'
+
+        if str.lower(answer) == str.lower(dictionary[r]):
+            print ("Right " + Player2 + ", you gained 1 point.")
+            Player2_score = Player2_score + 1
+        else:
+            P2_status = False
+            print("Wrong answer " + Player2)
+
+    if Player2_score == 2:
+        break
+
+if Player2_score == 2:
+        print("P2 wins")
+
+else:
+    print("P1 wins")
