@@ -25,7 +25,7 @@ while Player1_score < 5 and Player2_score < 5:
     P2_status = True
 
     while P1_status == True and Player1_score < 5:
-        r = (random.choice(list(dictionary)))
+        r = random.choice(list(dictionary))
         t = random.choice(list(random_trump))
         l = random.choice(list(random_compliment))
         print('\n' + Player1 + ", your score is: " + str(Player1_score))
@@ -48,7 +48,7 @@ while Player1_score < 5 and Player2_score < 5:
         break
 
     while P2_status == True and Player2_score < 5:
-        r = (random.choice(list(dictionary)))
+        r = random.choice(list(dictionary))
         t = random.choice(list(random_trump))
         l = random.choice(list(random_compliment))
         print('\n' + Player2 + ", your score is: " + str(Player2_score))
